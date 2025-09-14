@@ -14,7 +14,7 @@ function App() {
 
   const fetchRecipes = async () => {
     try {
-      const response = await fetch('https://dummyjson.com/recipes?limit=110&skip=0')
+      const response = await fetch('https://dummyjson.com/recipes?limit=20&skip=0')
       const data = await response.json()
       setRecipes(data.recipes)
       setLoading(false)
@@ -31,7 +31,10 @@ function App() {
   if (selectedRecipe) {
     return (
       <div className="app">
-        <RecipeDetail recipe={selectedRecipe} onBack={() => setSelectedRecipe(null)} />
+        <RecipeDetail 
+          recipe={selectedRecipe} 
+          onBack={() => setSelectedRecipe(null)} 
+        />
       </div>
     )
   }
